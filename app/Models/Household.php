@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Database\Factories\HouseholdFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -21,6 +23,9 @@ use Illuminate\Support\Carbon;
 #[Fillable(['name', 'currency'])]
 class Household extends Model
 {
+    /** @use HasFactory<HouseholdFactory> */
+    use HasFactory;
+
     /**
      * Get the attributes that should be cast.
      *

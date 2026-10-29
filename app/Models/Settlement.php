@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Enums\SettlementStatus;
+use Database\Factories\SettlementFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -23,6 +25,9 @@ use Illuminate\Support\Carbon;
 #[Fillable(['household_id', 'from_user_id', 'to_user_id', 'amount'])]
 class Settlement extends Model
 {
+    /** @use HasFactory<SettlementFactory> */
+    use HasFactory;
+
     /**
      * Mirrors the column default so new instances have a status before being refreshed.
      *
