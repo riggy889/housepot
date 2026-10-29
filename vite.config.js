@@ -21,6 +21,9 @@ export default defineConfig({
         tailwindcss(),
     ]),
     server: {
+        host: '0.0.0.0',
+        port: 5173,
+        strictPort: true,
         cors: true,
         watch: {
             ignored: [
@@ -31,6 +34,8 @@ export default defineConfig({
                 '**/storage/framework/views/**',
                 '**/vendor/**',
             ],
+            usePolling: process.env.VITE_USE_POLLING === 'true',
         },
+        hmr: { host: process.env.VITE_HMR_HOST ?? 'localhost' },
     },
 });
